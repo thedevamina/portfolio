@@ -1,0 +1,196 @@
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowDown, ArrowUpRight, Download, Github, Linkedin, Mail } from "lucide-react";
+import portrait from "@/assets/amina-portrait.jpeg";
+import { ROLES, SOCIALS } from "./data";
+import { Magnetic } from "./primitives";
+import { ParticleField } from "./effects";
+
+function Typewriter() {
+  const [index, setIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const full = ROLES[index % ROLES.length];
+    const done = !deleting && text === full;
+    const cleared = deleting && text === "";
+
+    if (done) {
+      const t = setTimeout(() => setDeleting(true), 1600);
+      return () => clearTimeout(t);
+    }
+    if (cleared) {
+      setDeleting(false);
+      setIndex((i) => (i + 1) % ROLES.length);
+      return;
+    }
+    const t = setTimeout(
+      () => setText(deleting ? full.slice(0, text.length - 1) : full.slice(0, text.length + 1)),
+      deleting ? 40 : 75,
+    );
+    return () => clearTimeout(t);
+  }, [text, deleting, index]);
+
+  return (
+    <span className="text-gradient">
+      <span aria-live="polite">{text}</span>
+      <span aria-hidden className="animate-caret font-light text-cyan">
+        |
+      </span>
+    </span>
+  );
+}
+
+export function Hero() {
+  return (
+    <section id="hero" className="relative overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32">
+      <ParticleField />
+      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
+        <div>
+          <motion.span
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.6 }}
+            className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs text-muted-foreground"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-cyan shadow-[0_0_12px_var(--cyan)]" />
+            Available for Job & Freelancing
+          </motion.span>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-6 text-5xl leading-[0.98] font-semibold sm:text-7xl"
+          >
+            Hi, I'm
+            <br />
+            Amina Ali
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.25, duration: 0.7 }}
+            className="mt-5 text-2xl font-medium sm:text-3xl"
+          >
+            <Typewriter />
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.35, duration: 0.7 }}
+            className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+          >
+            Building modern web applications and intuitive digital experiences. I care about the
+            small things — the timing of a transition, the weight of a heading, the moment a product
+            starts to feel effortless.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.45, duration: 0.7 }}
+            className="mt-9 flex flex-wrap items-center gap-3"
+          >
+            <Magnetic>
+              <a
+                href="#projects"
+                className="group inline-flex items-center gap-2 rounded-full bg-[image:var(--gradient-brand)] px-6 py-3.5 text-sm font-medium text-white shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.03]"
+              >
+                View Projects
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a
+                href="/Amina_Ali_CV_.docx"
+                download="Amina_Ali_CV_.docx"
+                className="glass inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-medium transition-colors hover:bg-surface-2"
+              >
+                <Download className="h-4 w-4" />
+                Download Resume
+              </a>
+            </Magnetic>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-full px-4 py-3.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Contact Me
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.6, duration: 0.7 }}
+            className="mt-10 flex items-center gap-3"
+          >
+            {[
+              { href: SOCIALS.github, label: "GitHub", Icon: Github },
+              { href: SOCIALS.linkedin, label: "LinkedIn", Icon: Linkedin },
+              { href: SOCIALS.email, label: "Email", Icon: Mail },
+            ].map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel="noreferrer"
+                className="glass grid h-11 w-11 place-items-center rounded-full text-muted-foreground transition-all hover:-translate-y-0.5 hover:text-foreground"
+              >
+                <Icon className="h-4.5 w-4.5" />
+              </a>
+            ))}
+            <span className="ml-2 hidden text-xs tracking-widest text-muted-foreground uppercase sm:inline">
+              Pakistan · Remote friendly
+            </span>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mx-auto w-full max-w-sm lg:max-w-none"
+        >
+          <div className="absolute -inset-6 rounded-[2.5rem] bg-[image:var(--gradient-brand)] opacity-25 blur-3xl" />
+          <motion.div
+            animate={{ y: [0, -14, 0] }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            className="glass-card relative overflow-hidden rounded-[2rem]"
+          >
+            <img
+              src={portrait}
+              alt="Portrait of Amina Ali, software engineer and UI/UX designer"
+              width={912}
+              height={1104}
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(to_top,var(--card),transparent)] p-5 pt-16">
+              <p className="text-sm font-medium">Amina Ali</p>
+              <p className="text-xs text-muted-foreground">
+                Software Engineer · UI/UX Designer · Gujrat, Pakistan
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      <motion.a
+        href="#about"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.8 }}
+        className="mx-auto mt-16 flex w-fit items-center gap-2 text-xs tracking-[0.2em] text-muted-foreground uppercase"
+      >
+        Scroll
+        <motion.span animate={{ y: [0, 5, 0] }} transition={{ duration: 1.6, repeat: Infinity }}>
+          <ArrowDown className="h-3.5 w-3.5" />
+        </motion.span>
+      </motion.a>
+    </section>
+  );
+}
