@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { Boxes, Braces, LayoutGrid, Palette, Server, Sparkles } from "lucide-react";
 import { SERVICES } from "./data";
-import { Reveal, Section, SectionHeading } from "./primitives";
-
+import { Section, SectionHeading } from "./primitives";
 const ICONS = [LayoutGrid, Palette, Boxes, Braces, Server, Sparkles];
 
 export function Services() {

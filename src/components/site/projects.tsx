@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github } from "lucide-react";
+import { Github } from "lucide-react";
 import { PROJECTS } from "./data";
 import { Reveal, Section, SectionHeading, TiltCard } from "./primitives";
 

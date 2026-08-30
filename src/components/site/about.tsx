@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Counter, Reveal, Section, SectionHeading } from "./primitives";
-import { STATS, TIMELINE } from "./data";
+import { Reveal, Section, SectionHeading } from "./primitives";
+import { TIMELINE } from "./data";;
 
 export function About() {
   return (
