@@ -6,7 +6,7 @@ import { Skills } from "@/components/site/skills";
 import { Projects } from "@/components/site/projects";
 import { Experience, Education } from "@/components/site/experience";
 import { Services, Marquee } from "@/components/site/services";
-import { Testimonials } from "@/components/site/testimonials";
+
 import { Contact, Footer } from "@/components/site/contact";
 import { Divider } from "@/components/site/primitives";
 import {
@@ -77,7 +77,7 @@ function Home() {
         <Divider />
         <Services />
         <Divider />
-        <Testimonials />
+       
         <Divider />
         <Contact />
       </main>

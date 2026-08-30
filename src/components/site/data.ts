@@ -137,23 +137,8 @@ export const SERVICES = [
   { title: "Browser Automation", body: "Automated browser workflows for repetitive tasks, testing and web-based processes." },
   { title: "Frontend Development", body: "Responsive React and TypeScript interfaces focused on performance, accessibility and clean user flows." },
   { title: "Backend & API Development", body: "Database-backed applications, REST APIs and backend services built for reliable product workflows." },
-export const TESTIMONIALS = [
-  {
-    quote:
-      "Amina turned a vague brief into an interface our users actually enjoy. The attention to detail in the motion and spacing is something we could not have specified ourselves.",
-
-  },
-  {
-    quote:
-      "Reliable, fast and genuinely thoughtful about edge cases. She shipped the admin system ahead of schedule and documented everything.",
-
-  },
-  {
-    quote:
-      "The design work raised the bar for the whole team. Clean typography, consistent components and a system we still use today."
-
-  },
 ];
+
 export const COURSEWORK = [
   "Data Structures & Algorithms",
   "Database Systems",
