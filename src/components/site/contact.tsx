@@ -33,9 +33,9 @@ export function Contact() {
           <Reveal delay={0.15}>
             <ul className="mt-10 grid gap-3">
               {[
-                { Icon: Mail, label: "hello@aminaali.dev", href: SOCIALS.email },
-                { Icon: Linkedin, label: "linkedin.com/in/aminaali", href: SOCIALS.linkedin },
-                { Icon: Github, label: "github.com/aminaali", href: SOCIALS.github },
+                { Icon: Mail, label: "thedevamina@gmail.com", href: "mailto:thedevamina@gmail.com" },
+                { Icon: Linkedin, label: "https://www.linkedin.com/in/thedevamina", href: "https://www.linkedin.com/in/thedevamina" },
+                { Icon: Github, label: "https://github.com/thedevamina", href: "https://github.com/thedevamina" },
                 { Icon: MapPin, label: "Pakistan · Available remotely", href: null },
               ].map(({ Icon, label, href }) => {
                 const content = (

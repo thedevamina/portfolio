@@ -55,7 +55,7 @@ export function Hero() {
             className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs text-muted-foreground"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-cyan shadow-[0_0_12px_var(--cyan)]" />
-            Available for Job & Freelancing
+            Available for Freelance & Full-time Roles
           </motion.span>
 
           <motion.h1
