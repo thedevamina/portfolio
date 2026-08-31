@@ -75,12 +75,23 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: "Amina Ali" },
-      { name: "theme-color", content: "#0B0F19" },
+      { charSet: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { title: 'Amina Ali — Full-Stack Web & Mobile App Developer' },
+      { 
+        name: 'description', 
+        content: 'Amina Ali is a full-stack developer building web, mobile, and AI/ML products with React, React Native, Flask, and Laravel. View projects and portfolio.' 
+      },
+      { name: 'keywords', content: 'Amina Ali, full-stack developer, React developer, React Native developer, web developer Pakistan' },
+      { property: 'og:title', content: 'Amina Ali — Full-Stack Developer' },
+      { property: 'og:description', content: 'Web, mobile, and AI/ML products built with React, React Native, Flask, and Laravel.' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://thedevamina.vercel.app/' },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
     links: [
+      { rel: 'canonical', href: 'https://thedevamina.vercel.app/' },
+      
       {
         rel: "stylesheet",
         href: appCss,
