@@ -88,10 +88,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://thedevamina.vercel.app/' },
       { name: 'twitter:card', content: 'summary_large_image' },
+      {name: "google-site-verification", content: "p1qg8Xx28eMC2OBArxhRxqwf7Kibhgtl3p_GPbuPz_A"},
     ],
     links: [
       { rel: 'canonical', href: 'https://thedevamina.vercel.app/' },
-      
+
       {
         rel: "stylesheet",
         href: appCss,
