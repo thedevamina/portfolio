@@ -74,22 +74,22 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'Amina Ali — Full-Stack Web & Mobile App Developer' },
-      { 
-        name: 'description', 
-        content: 'Amina Ali is a full-stack developer building web, mobile, and AI/ML products with React, React Native, Flask, and Laravel. View projects and portfolio.' 
-      },
-      { name: 'keywords', content: 'Amina Ali, full-stack developer, React developer, React Native developer, web developer Pakistan' },
-      { property: 'og:title', content: 'Amina Ali — Full-Stack Developer' },
-      { property: 'og:description', content: 'Web, mobile, and AI/ML products built with React, React Native, Flask, and Laravel.' },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://thedevamina.vercel.app/' },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      {name: "google-site-verification", content: "p1qg8Xx28eMC2OBArxhRxqwf7Kibhgtl3p_GPbuPz_A"},
-    ],
+   meta: [
+  { charSet: 'utf-8' },
+  { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+  { title: 'Amina Ali — Full-Stack Web & Mobile App Developer' },
+  { 
+    name: 'description', 
+    content: 'Amina Ali — Full-stack developer building web, mobile & AI/ML products. From SpendWise to ClientIQ, I turn ideas into real, working software.' 
+  },
+  { name: 'keywords', content: 'Amina Ali, full-stack developer, React developer, React Native developer, web developer Pakistan, AI ML developer, Python automation' },
+  { property: 'og:title', content: 'Amina Ali — Full-Stack Developer' },
+  { property: 'og:description', content: 'Full-stack developer building web, mobile & AI/ML products. From SpendWise to ClientIQ, I turn ideas into real, working software.' },
+  { property: 'og:type', content: 'website' },
+  { property: 'og:url', content: 'https://thedevamina.vercel.app/' },
+  { name: 'twitter:card', content: 'summary_large_image' },
+  { name: "google-site-verification", content: "p1qg8Xx28eMC2OBArxhRxqwf7Kibhgtl3p_GPbuPz_A" },
+],
     links: [
       { rel: 'canonical', href: 'https://thedevamina.vercel.app/' },
 
