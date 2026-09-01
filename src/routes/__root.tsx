@@ -118,41 +118,49 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Amina Ali",
-              "alternateName": "thedevamina",
-              "jobTitle": "Full-Stack Software Engineer",
-              "description": "Full-Stack Developer specializing in Web, Mobile, and AI/ML products. Experienced in Python automation, machine learning, React, React Native, Flask, and Laravel.",
-              "url": "https://thedevamina.vercel.app/",
-              "sameAs": [
-                "https://github.com/thedevamina",
-                "https://linkedin.com/in/thedevamina"
-              ],
-              "knowsAbout": [
-                "Full-Stack Development",
-                "Software Engineering",
-                "Artificial Intelligence",
-                "Machine Learning",
-                "Python Automation",
-                "React",
-                "React Native",
-                "Flask",
-                "Laravel"
-              ],
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Gujrat",
-                "addressRegion": "Punjab",
-                "addressCountry": "Pakistan"
-              }
-            })
-          }}
-        />
+      <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Amina Ali",
+      "alternateName": "thedevamina",
+      "jobTitle": "Full-Stack Software Engineer",
+      "description": "Full-Stack Developer specializing in Web, Mobile, and AI/ML products. Experienced in Python automation, machine learning, React, React Native, Flask, and Laravel.",
+      "url": "https://thedevamina.vercel.app/",
+      "sameAs": [
+        "https://github.com/thedevamina",
+        "https://linkedin.com/in/thedevamina"
+      ],
+      "knowsAbout": [
+        "Full-Stack Development",
+        "Software Engineering",
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Python Automation",
+        "React",
+        "React Native",
+        "Next.js",
+        "TypeScript",
+        "Flask",
+        "Laravel",
+        "UI/UX Design"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Gujrat",
+        "addressRegion": "Punjab",
+        "addressCountry": "Pakistan"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Gujrat"
+      }
+    })
+  }}
+/>
+      
       </head>
       <body>
         {children}
