@@ -300,14 +300,7 @@ export function Hero() {
               panel is now content-height instead of a fixed tall box, this
               stays anchored close to it, and centering keeps it clear of the
               corner-pinned skill cards */}
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="glass-card absolute -bottom-6 left-1/2 z-20 hidden w-52 -translate-x-1/2 rounded-2xl px-4 py-3 lg:block"
-          >
-            <p className="text-[11px] text-muted-foreground">Now building</p>
-            <p className="text-sm font-semibold">Portfolio v2 redesign</p>
-          </motion.div>
+        
         </motion.div>
       </div>
 
