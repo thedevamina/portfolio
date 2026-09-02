@@ -1,7 +1,17 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Download, Github, Linkedin, Mail, Code2, Smartphone, Brain, Rocket } from "lucide-react";
-import portrait from "@/assets/amina-portrait.jpeg";
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Download,
+  Github,
+  Linkedin,
+  Mail,
+  Code2,
+  Smartphone,
+  Brain,
+  Rocket,
+} from "lucide-react";
 import { ROLES, SOCIALS } from "./data";
 import { Magnetic } from "./primitives";
 import { ParticleField } from "./effects";
@@ -42,14 +52,75 @@ function Typewriter() {
   );
 }
 
-
-
 const STATS = [
   { label: "Projects Shipped", value: "6+" },
   { label: "Tech Stack", value: "10+" },
   { label: "Years Coding", value: "3+" },
   { label: "Client Ready", value: "100%" },
 ];
+
+// Feature cards data — each has a fixed corner + row so they can never collide.
+// Top row cards sit at `top-*`, bottom row cards sit at `bottom-*`, and the
+// wrapper below has a guaranteed min-height so there's always room between rows.
+const FEATURE_CARDS = [
+  {
+    icon: Code2,
+    title: "Web Development",
+    desc: "Responsive sites built with React.",
+    position: "left-[-1.25rem] top-6 xl:left-[-3rem]",
+    float: { y: [0, -8, 0], duration: 5, delay: 0 },
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Apps",
+    desc: "Cross-platform apps that just work.",
+    position: "right-[-1.25rem] top-6 xl:right-[-3rem]",
+    float: { y: [0, 8, 0], duration: 5.5, delay: 0.5 },
+  },
+  {
+    icon: Brain,
+    title: "AI/ML Integration",
+    desc: "Smart features baked into products.",
+    position: "left-[-1.5rem] bottom-6 xl:left-[-3.5rem]",
+    float: { y: [0, 8, 0], duration: 6, delay: 1 },
+  },
+  {
+    icon: Rocket,
+    title: "Automation",
+    desc: "Tools that save hours of manual work.",
+    position: "right-[-1.5rem] bottom-6 xl:right-[-3.5rem]",
+    float: { y: [0, -8, 0], duration: 5.2, delay: 1.5 },
+  },
+];
+
+function AvatarIllustration() {
+  return (
+    <div className="relative flex aspect-[912/1104] w-full items-center justify-center overflow-hidden bg-[image:var(--gradient-brand)]">
+      {/* subtle dot grid */}
+      <div
+        className="absolute inset-0 opacity-[0.15]"
+        style={{
+          backgroundImage: "radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px)",
+          backgroundSize: "22px 22px",
+        }}
+      />
+      {/* soft glows */}
+      <div className="absolute -top-12 -right-12 h-44 w-44 rounded-full bg-white/15 blur-3xl" />
+      <div className="absolute -bottom-12 -left-12 h-44 w-44 rounded-full bg-black/25 blur-3xl" />
+
+      {/* faint corner icons for texture */}
+      <Code2 className="absolute left-8 top-10 h-6 w-6 text-white/40" />
+      <Smartphone className="absolute right-9 top-14 h-6 w-6 text-white/40" />
+      <Brain className="absolute bottom-28 left-10 h-6 w-6 text-white/40" />
+      <Rocket className="absolute bottom-24 right-10 h-6 w-6 text-white/40" />
+
+      {/* Avatar circle with initials */}
+      <div className="relative grid h-36 w-36 place-items-center rounded-full border border-white/30 bg-card/50 shadow-[var(--shadow-glow)] backdrop-blur-md sm:h-44 sm:w-44">
+        <span className="text-4xl font-bold tracking-tight text-white sm:text-5xl">AA</span>
+      </div>
+    </div>
+  );
+}
 
 export function Hero() {
   return (
@@ -159,69 +230,34 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Image with floating feature cards */}
+        {/* Illustration with floating feature cards */}
         <motion.div
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-sm lg:max-w-none"
+          className="relative mx-auto w-full max-w-sm lg:max-w-none lg:min-h-[520px] xl:min-h-[560px]"
         >
-          {/* Floating cards - hidden on small screens to avoid clutter */}
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="glass-card absolute -left-6 top-8 z-20 hidden w-48 rounded-2xl p-4 lg:block xl:-left-12"
-          >
-            <div className="flex items-center gap-2">
-              <span className="grid h-8 w-8 place-items-center rounded-lg bg-[image:var(--gradient-brand)]">
-                <Code2 className="h-4 w-4 text-white" />
-              </span>
-              <p className="text-sm font-semibold">Web Development</p>
-            </div>
-            <p className="mt-1.5 text-xs text-muted-foreground">Responsive sites built with React.</p>
-          </motion.div>
-
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="glass-card absolute -right-6 top-24 z-20 hidden w-48 rounded-2xl p-4 lg:block xl:-right-12"
-          >
-            <div className="flex items-center gap-2">
-              <span className="grid h-8 w-8 place-items-center rounded-lg bg-[image:var(--gradient-brand)]">
-                <Smartphone className="h-4 w-4 text-white" />
-              </span>
-              <p className="text-sm font-semibold">Mobile Apps</p>
-            </div>
-            <p className="mt-1.5 text-xs text-muted-foreground">Cross-platform apps that just work.</p>
-          </motion.div>
-
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="glass-card absolute -left-8 bottom-28 z-20 hidden w-48 rounded-2xl p-4 lg:block xl:-left-16"
-          >
-            <div className="flex items-center gap-2">
-              <span className="grid h-8 w-8 place-items-center rounded-lg bg-[image:var(--gradient-brand)]">
-                <Brain className="h-4 w-4 text-white" />
-              </span>
-              <p className="text-sm font-semibold">AI/ML Integration</p>
-            </div>
-            <p className="mt-1.5 text-xs text-muted-foreground">Smart features baked into products.</p>
-          </motion.div>
-
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-            className="glass-card absolute -right-8 bottom-10 z-20 hidden w-48 rounded-2xl p-4 lg:block xl:-right-16"
-          >
-            <div className="flex items-center gap-2">
-              <span className="grid h-8 w-8 place-items-center rounded-lg bg-[image:var(--gradient-brand)]">
-                <Rocket className="h-4 w-4 text-white" />
-              </span>
-              <p className="text-sm font-semibold">Automation</p>
-            </div>
-            <p className="mt-1.5 text-xs text-muted-foreground">Tools that save hours of manual work.</p>
-          </motion.div>
+          {/* Floating cards - hidden on small screens to avoid clutter.
+              Each card is pinned to one of four corners (top-left, top-right,
+              bottom-left, bottom-right) so top-row cards can never collide
+              with bottom-row cards, and the min-height above guarantees the
+              vertical gap between the two rows. */}
+          {FEATURE_CARDS.map(({ icon: Icon, title, desc, position, float }) => (
+            <motion.div
+              key={title}
+              animate={{ y: float.y }}
+              transition={{ duration: float.duration, repeat: Infinity, ease: "easeInOut", delay: float.delay }}
+              className={`glass-card absolute z-20 hidden w-44 rounded-2xl p-4 lg:block ${position}`}
+            >
+              <div className="flex items-center gap-2">
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[image:var(--gradient-brand)]">
+                  <Icon className="h-4 w-4 text-white" />
+                </span>
+                <p className="text-sm font-semibold">{title}</p>
+              </div>
+              <p className="mt-1.5 text-xs text-muted-foreground">{desc}</p>
+            </motion.div>
+          ))}
 
           <div className="absolute -inset-6 rounded-[2.5rem] bg-[image:var(--gradient-brand)] opacity-25 blur-3xl" />
           <motion.div
@@ -229,13 +265,7 @@ export function Hero() {
             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
             className="glass-card relative z-10 overflow-hidden rounded-[2rem]"
           >
-            <img
-              src={portrait}
-              alt="Portrait of Amina Ali, software engineer and UI/UX designer"
-              width={912}
-              height={1104}
-              className="h-full w-full object-cover"
-            />
+            <AvatarIllustration />
             <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(to_top,var(--card),transparent)] p-5 pt-16">
               <p className="text-sm font-medium">Amina Ali</p>
               <p className="text-xs text-muted-foreground">
