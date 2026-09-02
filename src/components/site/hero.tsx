@@ -42,12 +42,7 @@ function Typewriter() {
   );
 }
 
-const FEATURE_CARDS = [
-  { Icon: Code2, title: "Web Development", desc: "Responsive sites built with React.", position: "top-left" },
-  { Icon: Smartphone, title: "Mobile Apps", desc: "Cross-platform apps that just work.", position: "top-right" },
-  { Icon: Brain, title: "AI/ML Integration", desc: "Smart features baked into products.", position: "bottom-left" },
-  { Icon: Rocket, title: "Automation", desc: "Tools that save hours of manual work.", position: "bottom-right" },
-];
+
 
 const STATS = [
   { label: "Projects Shipped", value: "6+" },
