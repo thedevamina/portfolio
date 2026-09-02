@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Download, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Download, Github, Linkedin, Mail, Code2, Smartphone, Brain, Rocket } from "lucide-react";
 import portrait from "@/assets/amina-portrait.jpeg";
 import { ROLES, SOCIALS } from "./data";
 import { Magnetic } from "./primitives";
@@ -42,9 +42,23 @@ function Typewriter() {
   );
 }
 
+const FEATURE_CARDS = [
+  { Icon: Code2, title: "Web Development", desc: "Responsive sites built with React.", position: "top-left" },
+  { Icon: Smartphone, title: "Mobile Apps", desc: "Cross-platform apps that just work.", position: "top-right" },
+  { Icon: Brain, title: "AI/ML Integration", desc: "Smart features baked into products.", position: "bottom-left" },
+  { Icon: Rocket, title: "Automation", desc: "Tools that save hours of manual work.", position: "bottom-right" },
+];
+
+const STATS = [
+  { label: "Projects Shipped", value: "6+" },
+  { label: "Tech Stack", value: "10+" },
+  { label: "Years Coding", value: "3+" },
+  { label: "Client Ready", value: "100%" },
+];
+
 export function Hero() {
   return (
-    <section id="hero" className="relative overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32">
+    <section id="hero" className="relative overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-24">
       <ParticleField />
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
         <div>
@@ -150,17 +164,75 @@ export function Hero() {
           </motion.div>
         </div>
 
+        {/* Image with floating feature cards */}
         <motion.div
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="relative mx-auto w-full max-w-sm lg:max-w-none"
         >
+          {/* Floating cards - hidden on small screens to avoid clutter */}
+          <motion.div
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="glass-card absolute -left-6 top-8 z-20 hidden w-48 rounded-2xl p-4 lg:block xl:-left-12"
+          >
+            <div className="flex items-center gap-2">
+              <span className="grid h-8 w-8 place-items-center rounded-lg bg-[image:var(--gradient-brand)]">
+                <Code2 className="h-4 w-4 text-white" />
+              </span>
+              <p className="text-sm font-semibold">Web Development</p>
+            </div>
+            <p className="mt-1.5 text-xs text-muted-foreground">Responsive sites built with React.</p>
+          </motion.div>
+
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            className="glass-card absolute -right-6 top-24 z-20 hidden w-48 rounded-2xl p-4 lg:block xl:-right-12"
+          >
+            <div className="flex items-center gap-2">
+              <span className="grid h-8 w-8 place-items-center rounded-lg bg-[image:var(--gradient-brand)]">
+                <Smartphone className="h-4 w-4 text-white" />
+              </span>
+              <p className="text-sm font-semibold">Mobile Apps</p>
+            </div>
+            <p className="mt-1.5 text-xs text-muted-foreground">Cross-platform apps that just work.</p>
+          </motion.div>
+
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="glass-card absolute -left-8 bottom-28 z-20 hidden w-48 rounded-2xl p-4 lg:block xl:-left-16"
+          >
+            <div className="flex items-center gap-2">
+              <span className="grid h-8 w-8 place-items-center rounded-lg bg-[image:var(--gradient-brand)]">
+                <Brain className="h-4 w-4 text-white" />
+              </span>
+              <p className="text-sm font-semibold">AI/ML Integration</p>
+            </div>
+            <p className="mt-1.5 text-xs text-muted-foreground">Smart features baked into products.</p>
+          </motion.div>
+
+          <motion.div
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+            className="glass-card absolute -right-8 bottom-10 z-20 hidden w-48 rounded-2xl p-4 lg:block xl:-right-16"
+          >
+            <div className="flex items-center gap-2">
+              <span className="grid h-8 w-8 place-items-center rounded-lg bg-[image:var(--gradient-brand)]">
+                <Rocket className="h-4 w-4 text-white" />
+              </span>
+              <p className="text-sm font-semibold">Automation</p>
+            </div>
+            <p className="mt-1.5 text-xs text-muted-foreground">Tools that save hours of manual work.</p>
+          </motion.div>
+
           <div className="absolute -inset-6 rounded-[2.5rem] bg-[image:var(--gradient-brand)] opacity-25 blur-3xl" />
           <motion.div
             animate={{ y: [0, -14, 0] }}
             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-            className="glass-card relative overflow-hidden rounded-[2rem]"
+            className="glass-card relative z-10 overflow-hidden rounded-[2rem]"
           >
             <img
               src={portrait}
@@ -179,12 +251,27 @@ export function Hero() {
         </motion.div>
       </div>
 
+      {/* Stats bar */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.7, duration: 0.7 }}
+        className="glass-card mx-auto mt-16 flex max-w-5xl flex-wrap items-center justify-around gap-6 rounded-3xl px-6 py-6 sm:px-10"
+      >
+        {STATS.map((stat) => (
+          <div key={stat.label} className="text-center">
+            <p className="text-2xl font-bold text-gradient sm:text-3xl">{stat.value}</p>
+            <p className="mt-1 text-xs text-muted-foreground uppercase tracking-wide">{stat.label}</p>
+          </div>
+        ))}
+      </motion.div>
+
       <motion.a
         href="#about"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.8 }}
-        className="mx-auto mt-16 flex w-fit items-center gap-2 text-xs tracking-[0.2em] text-muted-foreground uppercase"
+        transition={{ delay: 1.9 }}
+        className="mx-auto mt-12 flex w-fit items-center gap-2 text-xs tracking-[0.2em] text-muted-foreground uppercase"
       >
         Scroll
         <motion.span animate={{ y: [0, 5, 0] }} transition={{ duration: 1.6, repeat: Infinity }}>
