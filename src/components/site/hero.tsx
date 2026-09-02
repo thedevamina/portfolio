@@ -296,14 +296,7 @@ export function Hero() {
               doesn't get clipped, centered so it can't collide with the
               corner-pinned skill cards, and pulled well above the bottom row
               so it doesn't collide vertically either */}
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="glass-card absolute bottom-28 left-1/2 z-20 hidden w-52 -translate-x-1/2 rounded-2xl px-4 py-3 lg:block xl:bottom-32"
-          >
-            <p className="text-[11px] text-muted-foreground">Now building</p>
-            <p className="text-sm font-semibold">Portfolio v2 redesign</p>
-          </motion.div>
+         
         </motion.div>
       </div>
 
