@@ -95,9 +95,13 @@ const FEATURE_CARDS = [
 
 function CodeAvatar() {
   return (
-    <div className="relative rounded-[1.75rem] border border-white/10 bg-[#0b0e17] p-6 font-mono text-[13px] shadow-[var(--shadow-glow)] sm:p-7">
+    <div className="relative flex aspect-[912/1104] w-full flex-col justify-center overflow-hidden bg-[#0b0e17] px-6 py-10 font-mono text-[13px] sm:px-7">
+      {/* soft glows for depth, echoing the site's gradient */}
+      <div className="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-[image:var(--gradient-brand)] opacity-20 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-[image:var(--gradient-brand)] opacity-10 blur-3xl" />
+
       {/* window chrome */}
-      <div className="flex items-center justify-between pb-5">
+      <div className="relative flex items-center justify-between pb-5">
         <div className="flex items-center gap-1.5">
           <span className="h-3 w-3 rounded-full bg-[#ff5f56]" />
           <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
@@ -107,7 +111,7 @@ function CodeAvatar() {
       </div>
 
       {/* code block */}
-      <pre className="overflow-x-auto leading-relaxed whitespace-pre text-white/90">
+      <pre className="relative overflow-x-auto leading-relaxed whitespace-pre text-white/90">
         <span className="text-purple-400">const</span> <span className="text-cyan-300">amina</span>
         {" = {\n"}
         {"  role: "}
@@ -134,7 +138,7 @@ function CodeAvatar() {
         {",\n}"}
       </pre>
 
-      <div className="mt-4 flex items-center gap-2 border-t border-white/10 pt-4 text-xs text-cyan-300">
+      <div className="relative mt-6 flex items-center gap-2 border-t border-white/10 pt-4 text-xs text-cyan-300">
         <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_theme(colors.cyan.300)]" />
         Open to new opportunities
       </div>
@@ -283,20 +287,22 @@ export function Hero() {
           <motion.div
             animate={{ y: [0, -14, 0] }}
             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-            className="relative z-10"
+            className="glass-card relative z-10 overflow-hidden rounded-[2rem]"
           >
             <CodeAvatar />
+          </motion.div>
 
-            {/* status badge, tucked under the code panel — centered so it never
-                collides with the left/right skill cards */}
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="glass-card absolute -bottom-6 left-1/2 z-30 hidden w-56 -translate-x-1/2 rounded-2xl px-4 py-3 sm:block"
-            >
-              <p className="text-[11px] text-muted-foreground">Now building</p>
-              <p className="text-sm font-semibold">Portfolio v2 redesign</p>
-            </motion.div>
+          {/* status badge — a sibling of the (overflow-hidden) code panel so it
+              doesn't get clipped, centered so it can't collide with the
+              corner-pinned skill cards, and pulled well above the bottom row
+              so it doesn't collide vertically either */}
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="glass-card absolute bottom-28 left-1/2 z-20 hidden w-52 -translate-x-1/2 rounded-2xl px-4 py-3 lg:block xl:bottom-32"
+          >
+            <p className="text-[11px] text-muted-foreground">Now building</p>
+            <p className="text-sm font-semibold">Portfolio v2 redesign</p>
           </motion.div>
         </motion.div>
       </div>
