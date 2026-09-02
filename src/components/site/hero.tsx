@@ -67,40 +67,40 @@ const FEATURE_CARDS = [
     icon: Code2,
     title: "Web Development",
     desc: "Responsive sites built with React.",
-    position: "left-[-1.25rem] top-6 xl:left-[-3rem]",
+    position: "left-[-0.5rem] top-10 xl:left-[-2rem]",
     float: { y: [0, -8, 0], duration: 5, delay: 0 },
   },
   {
     icon: Smartphone,
     title: "Mobile Apps",
     desc: "Cross-platform apps that just work.",
-    position: "right-[-1.25rem] top-6 xl:right-[-3rem]",
+    position: "right-[-0.5rem] top-10 xl:right-[-2rem]",
     float: { y: [0, 8, 0], duration: 5.5, delay: 0.5 },
   },
   {
     icon: Brain,
     title: "AI/ML Integration",
     desc: "Smart features baked into products.",
-    position: "left-[-1.5rem] bottom-6 xl:left-[-3.5rem]",
+    position: "left-[-0.75rem] bottom-10 xl:left-[-2.25rem]",
     float: { y: [0, 8, 0], duration: 6, delay: 1 },
   },
   {
     icon: Rocket,
     title: "Automation",
     desc: "Tools that save hours of manual work.",
-    position: "right-[-1.5rem] bottom-6 xl:right-[-3.5rem]",
+    position: "right-[-0.75rem] bottom-10 xl:right-[-2.25rem]",
     float: { y: [0, -8, 0], duration: 5.2, delay: 1.5 },
   },
 ];
 
 function CodeAvatar() {
   return (
-    <div className="relative flex aspect-[912/1104] w-full flex-col justify-center overflow-hidden bg-[#0b0e17] px-6 py-10 font-mono text-[13px] sm:px-7">
+    <div className="relative flex aspect-[912/1104] w-full flex-col overflow-hidden bg-[#0b0e17] px-6 pt-6 pb-8 font-mono text-[13px] sm:px-7 sm:pt-7">
       {/* soft glows for depth, echoing the site's gradient */}
       <div className="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-[image:var(--gradient-brand)] opacity-20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-[image:var(--gradient-brand)] opacity-10 blur-3xl" />
 
-      {/* window chrome */}
+      {/* window chrome — pinned to the true top-left, not centered */}
       <div className="relative flex items-center justify-between pb-5">
         <div className="flex items-center gap-1.5">
           <span className="h-3 w-3 rounded-full bg-[#ff5f56]" />
@@ -110,12 +110,16 @@ function CodeAvatar() {
         <span className="text-xs text-white/40">amina.ts</span>
       </div>
 
-      {/* code block */}
-      <pre className="relative overflow-x-auto leading-relaxed whitespace-pre text-white/90">
+      {/* code fills the rest of the block — no separate status bar,
+          "open to opportunities" is written as a code comment instead */}
+      <pre className="relative flex-1 overflow-x-auto leading-relaxed whitespace-pre text-white/90">
         <span className="text-purple-400">const</span> <span className="text-cyan-300">amina</span>
         {" = {\n"}
         {"  role: "}
         <span className="text-emerald-300">"Full-Stack Developer"</span>
+        {",\n"}
+        {"  location: "}
+        <span className="text-emerald-300">"Gujrat, Pakistan"</span>
         {",\n"}
         {"  stack: ["}
         <span className="text-emerald-300">"React"</span>
@@ -133,15 +137,21 @@ function CodeAvatar() {
         {", "}
         <span className="text-emerald-300">"AI/ML"</span>
         {"],\n"}
+        {"  experience: "}
+        <span className="text-emerald-300">"3+ years"</span>
+        {",\n"}
+        {"  projectsShipped: "}
+        <span className="text-amber-300">6</span>
+        {",\n"}
         {"  available: "}
         <span className="text-amber-300">true</span>
         {",\n}"}
+        {"\n\n"}
+        <span className="text-white/30">{"// open to new opportunities"}</span>
+        {"\n"}
+        <span className="text-purple-400">export default</span>
+        {" amina;"}
       </pre>
-
-      <div className="relative mt-6 flex items-center gap-2 border-t border-white/10 pt-4 text-xs text-cyan-300">
-        <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_theme(colors.cyan.300)]" />
-        Open to new opportunities
-      </div>
     </div>
   );
 }
@@ -259,7 +269,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-sm lg:max-w-none lg:min-h-[520px] xl:min-h-[560px]"
+          className="relative mx-auto w-full max-w-sm lg:max-w-none"
         >
           {/* Floating cards - hidden on small screens to avoid clutter.
               Each card is pinned to one of four corners (top-left, top-right,
@@ -296,7 +306,7 @@ export function Hero() {
               doesn't get clipped, centered so it can't collide with the
               corner-pinned skill cards, and pulled well above the bottom row
               so it doesn't collide vertically either */}
-         
+        
         </motion.div>
       </div>
 
