@@ -66,29 +66,25 @@ const FEATURE_CARDS = [
   {
     icon: Code2,
     title: "Web Development",
-    desc: "Responsive sites built with React.",
-    position: "left-[-0.5rem] top-10 xl:left-[-2rem]",
+    position: "left-[-0.5rem] top-7 xl:left-[-2rem]",
     float: { y: [0, -8, 0], duration: 5, delay: 0 },
   },
   {
     icon: Smartphone,
     title: "Mobile Apps",
-    desc: "Cross-platform apps that just work.",
-    position: "right-[-0.5rem] top-10 xl:right-[-2rem]",
+    position: "right-[-0.5rem] top-7 xl:right-[-2rem]",
     float: { y: [0, 8, 0], duration: 5.5, delay: 0.5 },
   },
   {
     icon: Brain,
     title: "AI/ML Integration",
-    desc: "Smart features baked into products.",
-    position: "left-[-0.75rem] bottom-10 xl:left-[-2.25rem]",
+    position: "left-[-0.75rem] bottom-7 xl:left-[-2.25rem]",
     float: { y: [0, 8, 0], duration: 6, delay: 1 },
   },
   {
     icon: Rocket,
     title: "Automation",
-    desc: "Tools that save hours of manual work.",
-    position: "right-[-0.75rem] bottom-10 xl:right-[-2.25rem]",
+    position: "right-[-0.75rem] bottom-7 xl:right-[-2.25rem]",
     float: { y: [0, -8, 0], duration: 5.2, delay: 1.5 },
   },
 ];
@@ -276,7 +272,7 @@ export function Hero() {
               bottom-left, bottom-right) so top-row cards can never collide
               with bottom-row cards, and the min-height above guarantees the
               vertical gap between the two rows. */}
-          {FEATURE_CARDS.map(({ icon: Icon, title, desc, position, float }) => (
+          {FEATURE_CARDS.map(({ icon: Icon, title, position, float }) => (
             <motion.div
               key={title}
               animate={{ y: float.y }}
@@ -289,7 +285,6 @@ export function Hero() {
                 </span>
                 <p className="text-sm font-semibold">{title}</p>
               </div>
-              <p className="mt-1.5 text-xs text-muted-foreground">{desc}</p>
             </motion.div>
           ))}
 
