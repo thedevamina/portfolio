@@ -93,30 +93,50 @@ const FEATURE_CARDS = [
   },
 ];
 
-function AvatarIllustration() {
+function CodeAvatar() {
   return (
-    <div className="relative flex aspect-[912/1104] w-full items-center justify-center overflow-hidden bg-[image:var(--gradient-brand)]">
-      {/* subtle dot grid */}
-      <div
-        className="absolute inset-0 opacity-[0.15]"
-        style={{
-          backgroundImage: "radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px)",
-          backgroundSize: "22px 22px",
-        }}
-      />
-      {/* soft glows */}
-      <div className="absolute -top-12 -right-12 h-44 w-44 rounded-full bg-white/15 blur-3xl" />
-      <div className="absolute -bottom-12 -left-12 h-44 w-44 rounded-full bg-black/25 blur-3xl" />
+    <div className="relative rounded-[1.75rem] border border-white/10 bg-[#0b0e17] p-6 font-mono text-[13px] shadow-[var(--shadow-glow)] sm:p-7">
+      {/* window chrome */}
+      <div className="flex items-center justify-between pb-5">
+        <div className="flex items-center gap-1.5">
+          <span className="h-3 w-3 rounded-full bg-[#ff5f56]" />
+          <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
+          <span className="h-3 w-3 rounded-full bg-[#27c93f]" />
+        </div>
+        <span className="text-xs text-white/40">amina.ts</span>
+      </div>
 
-      {/* faint corner icons for texture */}
-      <Code2 className="absolute left-8 top-10 h-6 w-6 text-white/40" />
-      <Smartphone className="absolute right-9 top-14 h-6 w-6 text-white/40" />
-      <Brain className="absolute bottom-28 left-10 h-6 w-6 text-white/40" />
-      <Rocket className="absolute bottom-24 right-10 h-6 w-6 text-white/40" />
+      {/* code block */}
+      <pre className="overflow-x-auto leading-relaxed whitespace-pre text-white/90">
+        <span className="text-purple-400">const</span> <span className="text-cyan-300">amina</span>
+        {" = {\n"}
+        {"  role: "}
+        <span className="text-emerald-300">"Full-Stack Developer"</span>
+        {",\n"}
+        {"  stack: ["}
+        <span className="text-emerald-300">"React"</span>
+        {", "}
+        <span className="text-emerald-300">"Node"</span>
+        {",\n          "}
+        <span className="text-emerald-300">"TypeScript"</span>
+        {", "}
+        <span className="text-emerald-300">"Next.js"</span>
+        {"],\n"}
+        {"  loves: ["}
+        <span className="text-emerald-300">"clean UI"</span>
+        {",\n          "}
+        <span className="text-emerald-300">"automation"</span>
+        {", "}
+        <span className="text-emerald-300">"AI/ML"</span>
+        {"],\n"}
+        {"  available: "}
+        <span className="text-amber-300">true</span>
+        {",\n}"}
+      </pre>
 
-      {/* Avatar circle with initials */}
-      <div className="relative grid h-36 w-36 place-items-center rounded-full border border-white/30 bg-card/50 shadow-[var(--shadow-glow)] backdrop-blur-md sm:h-44 sm:w-44">
-        <span className="text-4xl font-bold tracking-tight text-white sm:text-5xl">AA</span>
+      <div className="mt-4 flex items-center gap-2 border-t border-white/10 pt-4 text-xs text-cyan-300">
+        <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_theme(colors.cyan.300)]" />
+        Open to new opportunities
       </div>
     </div>
   );
@@ -263,15 +283,20 @@ export function Hero() {
           <motion.div
             animate={{ y: [0, -14, 0] }}
             transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-            className="glass-card relative z-10 overflow-hidden rounded-[2rem]"
+            className="relative z-10"
           >
-            <AvatarIllustration />
-            <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(to_top,var(--card),transparent)] p-5 pt-16">
-              <p className="text-sm font-medium">Amina Ali</p>
-              <p className="text-xs text-muted-foreground">
-                Software Engineer · UI/UX Designer · Gujrat, Pakistan
-              </p>
-            </div>
+            <CodeAvatar />
+
+            {/* status badge, tucked under the code panel — centered so it never
+                collides with the left/right skill cards */}
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="glass-card absolute -bottom-6 left-1/2 z-30 hidden w-56 -translate-x-1/2 rounded-2xl px-4 py-3 sm:block"
+            >
+              <p className="text-[11px] text-muted-foreground">Now building</p>
+              <p className="text-sm font-semibold">Portfolio v2 redesign</p>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
