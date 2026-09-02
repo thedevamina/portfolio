@@ -66,32 +66,32 @@ const FEATURE_CARDS = [
   {
     icon: Code2,
     title: "Web Development",
-    position: "left-[-0.5rem] top-7 xl:left-[-2rem]",
+    position: "left-[-0.5rem] top-[24%] xl:left-[-1.25rem]",
     float: { y: [0, -8, 0], duration: 5, delay: 0 },
   },
   {
     icon: Smartphone,
     title: "Mobile Apps",
-    position: "right-[-0.5rem] top-7 xl:right-[-2rem]",
+    position: "right-[-0.5rem] top-[24%] xl:right-[-1.25rem]",
     float: { y: [0, 8, 0], duration: 5.5, delay: 0.5 },
   },
   {
     icon: Brain,
     title: "AI/ML Integration",
-    position: "left-[-0.75rem] bottom-7 xl:left-[-2.25rem]",
+    position: "left-[-0.5rem] bottom-[24%] xl:left-[-1.25rem]",
     float: { y: [0, 8, 0], duration: 6, delay: 1 },
   },
   {
     icon: Rocket,
     title: "Automation",
-    position: "right-[-0.75rem] bottom-7 xl:right-[-2.25rem]",
+    position: "right-[-0.5rem] bottom-[24%] xl:right-[-1.25rem]",
     float: { y: [0, -8, 0], duration: 5.2, delay: 1.5 },
   },
 ];
 
 function CodeAvatar() {
   return (
-    <div className="relative flex aspect-[912/1104] w-full flex-col overflow-hidden bg-[#0b0e17] px-6 pt-6 pb-8 font-mono text-[13px] sm:px-7 sm:pt-7">
+    <div className="relative flex w-full flex-col overflow-hidden bg-[#0b0e17] px-6 pt-6 pb-7 font-mono text-[13px] sm:px-7 sm:pt-7">
       {/* soft glows for depth, echoing the site's gradient */}
       <div className="pointer-events-none absolute -top-16 -right-16 h-56 w-56 rounded-full bg-[image:var(--gradient-brand)] opacity-20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-[image:var(--gradient-brand)] opacity-10 blur-3xl" />
@@ -106,9 +106,8 @@ function CodeAvatar() {
         <span className="text-xs text-white/40">amina.ts</span>
       </div>
 
-      {/* code fills the rest of the block — no separate status bar,
-          "open to opportunities" is written as a code comment instead */}
-      <pre className="relative flex-1 overflow-x-auto leading-relaxed whitespace-pre text-white/90">
+      {/* code — panel height now follows this content instead of a fixed box */}
+      <pre className="relative overflow-x-auto leading-relaxed whitespace-pre text-white/90">
         <span className="text-purple-400">const</span> <span className="text-cyan-300">amina</span>
         {" = {\n"}
         {"  role: "}
@@ -277,13 +276,13 @@ export function Hero() {
               key={title}
               animate={{ y: float.y }}
               transition={{ duration: float.duration, repeat: Infinity, ease: "easeInOut", delay: float.delay }}
-              className={`glass-card absolute z-20 hidden w-44 rounded-2xl p-4 lg:block ${position}`}
+              className={`glass-card absolute z-20 hidden w-auto rounded-xl px-3 py-2.5 lg:block ${position}`}
             >
               <div className="flex items-center gap-2">
-                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[image:var(--gradient-brand)]">
-                  <Icon className="h-4 w-4 text-white" />
+                <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-[image:var(--gradient-brand)]">
+                  <Icon className="h-3.5 w-3.5 text-white" />
                 </span>
-                <p className="text-sm font-semibold">{title}</p>
+                <p className="whitespace-nowrap text-xs font-semibold">{title}</p>
               </div>
             </motion.div>
           ))}
@@ -297,11 +296,18 @@ export function Hero() {
             <CodeAvatar />
           </motion.div>
 
-          {/* status badge — a sibling of the (overflow-hidden) code panel so it
-              doesn't get clipped, centered so it can't collide with the
-              corner-pinned skill cards, and pulled well above the bottom row
-              so it doesn't collide vertically either */}
-        
+          {/* status badge — hangs just below the panel's bottom edge; since the
+              panel is now content-height instead of a fixed tall box, this
+              stays anchored close to it, and centering keeps it clear of the
+              corner-pinned skill cards */}
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="glass-card absolute -bottom-6 left-1/2 z-20 hidden w-52 -translate-x-1/2 rounded-2xl px-4 py-3 lg:block"
+          >
+            <p className="text-[11px] text-muted-foreground">Now building</p>
+            <p className="text-sm font-semibold">Portfolio v2 redesign</p>
+          </motion.div>
         </motion.div>
       </div>
 
