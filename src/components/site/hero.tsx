@@ -60,31 +60,31 @@ const STATS = [
 ];
 
 // Feature cards data — each has a fixed corner + row so they can never collide.
-// Top row cards sit at `top-*`, bottom row cards sit at `bottom-*`, and the
-// wrapper below has a guaranteed min-height so there's always room between rows.
+// Pushed further outside the panel horizontally so they never sit on top of
+// the code text; only the horizontal offsets changed from the last version.
 const FEATURE_CARDS = [
   {
     icon: Code2,
     title: "Web Development",
-    position: "left-[-0.5rem] top-[24%] xl:left-[-1.25rem]",
+    position: "left-[-2.5rem] top-[24%] xl:left-[-4rem]",
     float: { y: [0, -8, 0], duration: 5, delay: 0 },
   },
   {
     icon: Smartphone,
     title: "Mobile Apps",
-    position: "right-[-0.5rem] top-[24%] xl:right-[-1.25rem]",
+    position: "right-[-2.5rem] top-[24%] xl:right-[-4rem]",
     float: { y: [0, 8, 0], duration: 5.5, delay: 0.5 },
   },
   {
     icon: Brain,
     title: "AI/ML Integration",
-    position: "left-[-0.5rem] bottom-[24%] xl:left-[-1.25rem]",
+    position: "left-[-2.5rem] bottom-[24%] xl:left-[-4rem]",
     float: { y: [0, 8, 0], duration: 6, delay: 1 },
   },
   {
     icon: Rocket,
     title: "Automation",
-    position: "right-[-0.5rem] bottom-[24%] xl:right-[-1.25rem]",
+    position: "right-[-2.5rem] bottom-[24%] xl:right-[-4rem]",
     float: { y: [0, -8, 0], duration: 5.2, delay: 1.5 },
   },
 ];
@@ -269,8 +269,8 @@ export function Hero() {
           {/* Floating cards - hidden on small screens to avoid clutter.
               Each card is pinned to one of four corners (top-left, top-right,
               bottom-left, bottom-right) so top-row cards can never collide
-              with bottom-row cards, and the min-height above guarantees the
-              vertical gap between the two rows. */}
+              with bottom-row cards, and they sit far enough outside the
+              panel horizontally that the code text is never covered. */}
           {FEATURE_CARDS.map(({ icon: Icon, title, position, float }) => (
             <motion.div
               key={title}
@@ -295,12 +295,6 @@ export function Hero() {
           >
             <CodeAvatar />
           </motion.div>
-
-          {/* status badge — hangs just below the panel's bottom edge; since the
-              panel is now content-height instead of a fixed tall box, this
-              stays anchored close to it, and centering keeps it clear of the
-              corner-pinned skill cards */}
-        
         </motion.div>
       </div>
 
