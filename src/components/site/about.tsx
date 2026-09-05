@@ -10,7 +10,7 @@ export function About() {
           <SectionHeading
             eyebrow="About"
             title="Engineering with a designer's eye."
-            description="I'm a computer science student and developer from Pakistan who builds products where the code and the interface are held to the same standard. Clean architecture on the inside, considered detail on the outside."
+           description="I ship complete products, not just code — six independent projects across web, mobile, and AI/ML, each built end-to-end from problem definition through deployment. Clean architecture on the inside, considered detail on the outside."
           />
         </div>
 

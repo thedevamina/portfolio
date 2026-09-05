@@ -70,15 +70,15 @@ export const PROJECTS = [
   {
     title: "Aurum Luxury Store",
     year: "2026",
-    description: "TypeScript-based e-commerce storefront, including product catalog, cart, and purchase flow UI.",
+    description: "Engineered a TypeScript-based e-commerce storefront with React, Laravel, and MySQL, covering product catalog, cart, and purchase flow.",
     stack: ["TypeScript", "React","Laravel","MySQL"],
     image: cafeShot, 
     github: "https://github.com/thedevamina/aurum-luxury-store",
   },
   {
-    title: "AI-ML-Projects",
+    title: "ClientIQ",
     year: "2026",
-    description: "ML-powered web applications using Flask, React, and scikit-learn, covering model integration and end-to-end app delivery.",
+    description: "Built a multi-model machine learning workflow that recommends freelance platforms based on a user's profile, with a Flask API backend and a React interface for real-time recommendations.",
     stack: ["Flask", "React", "scikit-learn"],
     image: aimlshot, 
     github: "https://github.com/thedevamina/AI-ML-Projects",
@@ -86,7 +86,7 @@ export const PROJECTS = [
   {
     title: "University Management System",
     year: "2026",
-    description: "Built a PHP-based system for managing university records and administrative workflows.",
+    description: "Developed a PHP/Laravel system for managing university records and administrative workflows, including role-based data handling.",
     stack: ["PHP","Blade","Laravel","MySQL"],
     image: universityShot,
     github: "https://github.com/thedevamina/university-management-system",
@@ -94,7 +94,7 @@ export const PROJECTS = [
   {
     title: "SpendWise",
     year: "2026",
-    description: "Mobile Expense Tracking App built with React Native, TypeScript, and Expo, featuring API integration and category-based analytics.",
+    description: "Engineered a React Native mobile expense tracker with full API integration, authentication, protected routing, and category-based analytics.",
     stack: ["React Native", "TypeScript", "Expo"],
     image: spendwiseShot,
     github: "https://github.com/thedevamina/SpendWise",
@@ -102,7 +102,7 @@ export const PROJECTS = [
   {
     title: "01-Task-Manager",
     year: "2026",
-    description: "JavaScript-based task management application covering task creation, tracking, and status updates.",
+    description: "Developed a JavaScript task management app with Node.js and Express, including task creation, tracking, status updates, and a CI/CD pipeline via Docker.",
     stack: ["JavaScript","Docker","Node.js","Express","CI/CD"],
     image: taskshot,
     github: "https://github.com/thedevamina/01-task-manager",
