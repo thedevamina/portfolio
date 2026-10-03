@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { PROJECTS } from "./data";
 import { Reveal, Section, SectionHeading, TiltCard } from "./primitives";
 
@@ -63,6 +63,17 @@ export function Projects() {
                       <Github className="h-4 w-4" />
                       GitHub
                     </a>
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="glass inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-colors hover:bg-surface-2"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                        Live Demo
+                      </a>
+                    )}
                   </div>
                 </div>
               </article>

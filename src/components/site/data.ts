@@ -3,6 +3,7 @@ import universityShot from "@/assets/project-uni.jpg";
 import aimlshot from "@/assets/project-university.jpg";
 import cafeShot from "@/assets/project-cafe.jpg";
 import spendwiseShot from "@/assets/project-spendwise.jpg";
+import codeQuestShot from "@/assets/codequest.png";
 
 export const NAV_LINKS = [
   { id: "about", label: "About" },
@@ -74,6 +75,15 @@ export const PROJECTS = [
     stack: ["TypeScript", "React","Laravel","MySQL"],
     image: cafeShot, 
     github: "https://github.com/thedevamina/aurum-luxury-store",
+  },
+  {
+    title: "Code Quest",
+    year: "2026",
+    description: "Full-stack coding learning and assessment platform with structured courses, chapter lessons, tests, exams, progress tracking, and admin content management.",
+    stack: ["React", "TypeScript", "Laravel", "PHP", "MySQL", "Laravel Sanctum"],
+    image: codeQuestShot,
+    github: "https://github.com/thedevamina/code-quest",
+    demo: "https://thedevamina-code-quest.vercel.app/",
   },
   {
     title: "ClientIQ",
